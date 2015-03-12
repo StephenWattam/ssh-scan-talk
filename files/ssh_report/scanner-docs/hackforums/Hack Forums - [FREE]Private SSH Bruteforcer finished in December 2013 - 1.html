@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Hack Forums - [FREE]Private SSH Bruteforcer finished in December 2013</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="robots" content="index,follow" />
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="http://www.hackforums.net/archive/screen.css" media="screen" />
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="http://www.hackforums.net/archive/print.css" media="print" />
+</head>
+<body>
+<div id="container">
+<h1><a href="http://www.hackforums.net/index.php">Hack Forums</a></h1>
+<div class="navigation"><a href="http://www.hackforums.net/archive/index.php">Hack Forums</a> &gt; <a href="http://www.hackforums.net/archive/index.php/forum-45.html">Hacks, Exploits, and Various Discussions</a> &gt; <a href="http://www.hackforums.net/archive/index.php/forum-10.html">Hacking Tools and Programs</a> &gt; [FREE]Private SSH Bruteforcer finished in December 2013</div>
+<div id="fullversion"><strong>Full Version:</strong> <a href="http://www.hackforums.net/showthread.php?tid=4072276">[FREE]Private SSH Bruteforcer finished in December 2013</a></div>
+<div id="infobox">You're currently viewing a stripped down version of our content. <a href="http://www.hackforums.net/showthread.php?tid=4072276">View the full version</a> with proper formatting.</div>
+<div id="content">
+<div class="multipage"><strong>Pages:</strong> <strong>1</strong> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-2.html">2</a> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-3.html">3</a> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-4.html">4</a> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-5.html">5</a> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-6.html">6</a> </div><div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=2098497">Courvoisier</a></h2></div><div class="dateline">02-20-2014, 10:26 AM</div>
+</div>
+<div class="message">Hello.<br />
+I am about to give you my private ssh2 scanner wich was finished in December 2013.<br />
+Why is this scanner different from any others?<br />
+Even though you can't see it because its compiled, it has a very clean code,which means it runs really fast without any complications<br />
+It separates roots from nologins<br />
+You will have 2 files at the end of bruteforce<br />
+1. vuln.txt where good roots are stored<br />
+2. nobash.txt where no-logins are stored<br />
+<br />
+This scanner doesn't save honeypots , busyboxes and other shits ,so your vuln.txt will only contain good roots.<br />
+<br />
+How to use it:<br />
+<br />
+1. ./scan A [ex : ./scan 208]<br />
+2. ./scan B [ex : ./scan 208.53]<br />
+3. ./scan C [ex : ./scan 208.53.151]<br />
+<br />
+Download link:<br />
+<br />
+<div class="codeblock">
+<div class="title">Code:<br />
+</div><div class="body" dir="ltr"><code>http://www31.zippyshare.com/v/96002282/file.html</code></div></div>
+<br />
+The passfile on the archive is a basic one,since i can't give you my personal passfile .<br />
+You can change the threads by editing the "scan" file<br />
+<br />
+<div class="codeblock">
+<div class="title">Code:<br />
+</div><div class="body" dir="ltr"><code>###### Config ######<br />
+pscanThreads=1000<br />
+ssh2Threads=250<br />
+port=22<br />
+pscanTimeout=1<br />
+ssh2Timeout=3<br />
+###### Running ######</code></div></div>
+<br />
+pscanThreads controls the speed of IP scanning<br />
+ssh2Threads controls the speed of brute-forcing <br />
+I recommend only changing the pscanThreads and ssh2Threads an leave other settings untouched.<br />
+<br />
+Note: You do not need to be root [superuser] to run this scanner<br />
+If you need any help,reply here.<br />
+<br />
+Download: <a href="http://www31.zippyshare.com/v/96002282/file.html" target="_blank">http://www31.zippyshare.com/v/96002282/file.html</a><br />
+Enjoy</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=1882627">Dc0d3b0y</a></h2></div><div class="dateline">02-20-2014, 02:01 PM</div>
+</div>
+<div class="message">Thanks bro i have been looking for something like this .. i almost bought one worth some &#36;&#36;&#36; .. Thanks to you i will try this one first .... it looks very unique from all other ssh scanners i have seen so have .. am sure it will work out fine .. i will give it a run and get back to you &gt;&gt;</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=2098497">Courvoisier</a></h2></div><div class="dateline">02-20-2014, 04:09 PM</div>
+</div>
+<div class="message">I am glad you like it.<br />
+Let me know how if it satisfies your need (it will :D)</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=1882627">Dc0d3b0y</a></h2></div><div class="dateline">02-21-2014, 05:43 AM</div>
+</div>
+<div class="message">I would have been cool it the username and pass were separated from each other</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=2098497">Courvoisier</a></h2></div><div class="dateline">02-21-2014, 07:07 AM</div>
+</div>
+<div class="message">@Dc0de3boy<br />
+Well its good fir me this way,i only use login root since i only need uid0 servers,and i dont have the time to fuck around and search for local root exploits.Make yourself a good passfile and you can be happy :)<br />
+@fulltools<br />
+ u welcome bro  u welcome bro  u welcome bro  u welcome bro  u welcome bro  u welcome bro  u welcome bro  u welcome bro  u welcome bro  u welcome bro  u welcome bro  u welcome bro  u welcome bro<br />
+<hr />
+Sry for double post but i need to say this:<br />
+<br />
+I had some people PM me about some problems with the scanner,but as you can see i can't PM yet,so please post your questions here in order to be able to help you.!</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=1686370">jojer7</a></h2></div><div class="dateline">02-22-2014, 01:17 PM</div>
+</div>
+<div class="message">thanks bro ur the best thanks for the share</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=2193806">zhadocks</a></h2></div><div class="dateline">02-23-2014, 12:09 PM</div>
+</div>
+<div class="message">Thanks for the tool JustBruteIT..will use it</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=2166264">jifel27</a></h2></div><div class="dateline">02-23-2014, 12:30 PM</div>
+</div>
+<div class="message">does it brute force also html-passwords?</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=2098497">Courvoisier</a></h2></div><div class="dateline">02-23-2014, 11:36 PM</div>
+</div>
+<div class="message">@jifel27<br />
+It can't bruteforce html since its not the same login algorithm as ssh.<br />
+@zhadocks <br />
+Np,enjoy!</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=902600">Purps</a></h2></div><div class="dateline">02-23-2014, 11:53 PM</div>
+</div>
+<div class="message">Very nice. I'll send this over to my friend and have him test to see if this one may be better than the one he is currently using.</div>
+</div>
+<div class="multipage"><strong>Pages:</strong> <strong>1</strong> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-2.html">2</a> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-3.html">3</a> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-4.html">4</a> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-5.html">5</a> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-6.html">6</a> </div></div>
+<div class="navigation"><a href="http://www.hackforums.net/archive/index.php">Hack Forums</a> &gt; <a href="http://www.hackforums.net/archive/index.php/forum-45.html">Hacks, Exploits, and Various Discussions</a> &gt; <a href="http://www.hackforums.net/archive/index.php/forum-10.html">Hacking Tools and Programs</a> &gt; [FREE]Private SSH Bruteforcer finished in December 2013</div>
+<div id="printinfo">
+<strong>Reference URL's</strong>
+<ul>
+<li><strong>Hack Forums:</strong> http://www.hackforums.net/index.php</li>
+<li><strong>:</strong> </li></ul>
+</div>
+</div>
+<div id="footer">
+Powered By <a href="http://mybb.com">MyBB</a>, &copy; 2002-2014 <a href="http://mybb.com">MyBB Group</a>
+</div>
+</body>
+</html>

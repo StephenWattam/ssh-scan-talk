@@ -1,0 +1,128 @@
+% Many thanks to http://cameron.bracken.bz/beamer-template
+% Last edited by Stephen Wattam, 14-02-13
+
+% Options
+\DeclareOptionBeamer{infolabcolours}{\PassOptionsToPackage{infolabcolours}{beamerthemeSmartSerif}
+                                     \PassOptionsToPackage{nocurve}{beamerthemeSmartSerif}}
+\DeclareOptionBeamer{nocurve}{\PassOptionsToPackage{nocurve}{beamerthemeSmartSerif}}
+\DeclareOptionBeamer{forcecurve}{\PassOptionsToPackage{forcecurve}{beamerthemeSmartSerif}}
+\DeclareOptionBeamer{curvecolour}{\PassOptionsToPackage{curvecolour}{beamerthemeSmartSerif}}
+\DeclareOptionBeamer{num}{\PassOptionsToPackage{num}{beamerthemeSmartSerif}}
+\DeclareOptionBeamer{bannerfg}{\PassOptionsToPackage{bannerfg=#1}{beamerthemeSmartSerif}}
+\DeclareOptionBeamer{bannerbg}{\PassOptionsToPackage{bannerbg=#1}{beamerthemeSmartSerif}}
+\DeclareOptionBeamer{bannerline}{\PassOptionsToPackage{bannerline=#1}{beamerthemeSmartSerif}}
+\ProcessOptionsBeamer
+
+
+%% Beamer Layout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useoutertheme[subsection=false,shadow]{miniframes}
+\useinnertheme{default}
+
+% Palatino font.
+\usefonttheme{serif}
+\usepackage{palatino}
+
+% Test for draft mode
+\usepackage{ifdraft}
+
+% Small caps for titles
+\setbeamerfont{title like}{shape=\scshape}
+\setbeamerfont{frametitle}{shape=\scshape}
+
+% Define "official" infolab colours.
+\definecolor{beamer@infolabgreen}{rgb}{0.0,0.6132,0.5703} % use structure theme to change
+\definecolor{beamer@infolaborange}{rgb}{0.9648,0.5742,0.1289} 
+\definecolor{beamer@lancsred}{rgb}{0.9258,0.0977,0.1758} 
+
+% Default colours
+\def\beamer@SmartSerif@bannerbg{black!10}
+\def\beamer@SmartSerif@bannerfg{black}
+\def\beamer@SmartSerif@bannerline{DeepSkyBlue4}
+
+% Custom colours
+\DeclareOptionBeamer{bannerbg}{ \def\beamer@SmartSerif@bannerbg{#1} }
+\DeclareOptionBeamer{bannerfg}{ \def\beamer@SmartSerif@bannerfg{#1} }
+\DeclareOptionBeamer{bannerline}{ \def\beamer@SmartSerif@bannerline{#1} }
+
+% Infolab override colours
+\DeclareOptionBeamer{infolabcolours}{
+    \def\beamer@SmartSerif@bannerbg{beamer@infolabgreen}
+    \def\beamer@SmartSerif@bannerline{beamer@infolaborange}
+    \def\beamer@SmartSerif@bannerfg{white}
+}
+
+
+% Curve colour is the line colour at 5% opacity by default
+\def\beamer@SmartSerif@curvecolour{ \beamer@SmartSerif@bannerline!5 }
+\DeclareOptionBeamer{curvecolour}{
+    \def\beamer@SmartSerif@curvecolour{#1}
+}
+
+% Background curve by default
+\def\beamer@SmartSerif@bgcurve{
+    \usepackage{tikz}
+    \usetikzlibrary{decorations.fractals}
+    \usebackgroundtemplate{
+        \begin{tikzpicture}[decoration=Koch curve type 2] 
+                 \draw[\beamer@SmartSerif@curvecolour,thick] decorate{ decorate{ decorate{ (0,0) -- (16,0) }} }; 
+                 \draw[\beamer@SmartSerif@curvecolour,thick] decorate{ decorate{ decorate{ (0,0) -- (32,0) }} }; 
+        \end{tikzpicture}  
+    }
+}
+
+% Force curve.  This works by disabling nocurve
+\def\beamer@SmartSerif@forcecurve{ \DeclareOptionBeamer{nocurve}{ \def\beamer@SmartSerif@bgcurve{} } }
+\DeclareOptionBeamer{forcecurve}{ \def\beamer@SmartSerif@forcecurve }
+\beamer@SmartSerif@forcecurve
+
+% Numbers at bottom
+\def\beamer@SmartSerif@num{}
+\DeclareOptionBeamer{num}{
+    \def\beamer@SmartSerif@num{\tiny \textcolor{gray}{{\insertframenumber\ / \inserttotalframenumber}}}
+}
+
+% 
+\ProcessOptionsBeamer
+
+
+% Apply colours.
+\setbeamercolor*{lower separation line head}{bg=\beamer@SmartSerif@bannerline} 
+\setbeamercolor*{normal text}{fg=black,bg=white} 
+\setbeamercolor*{alerted text}{fg=red} 
+\setbeamercolor*{example text}{fg=black} 
+\setbeamercolor*{structure}{fg=black} 
+\setbeamercolor*{palette tertiary}{fg=\beamer@SmartSerif@bannerfg,bg=\beamer@SmartSerif@bannerbg}
+\setbeamercolor*{palette quaternary}{fg=black,bg=black!10} 
+
+% Style blocks
+\setbeamercolor{block title}{use=structure,fg=\beamer@SmartSerif@bannerfg,bg=\beamer@SmartSerif@bannerbg}
+\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=alerted text.fg!75!black}
+\setbeamercolor{block title example}{use=example text,fg=white,bg=example text.fg!75!black}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!10!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+
+
+
+
+% And some convenience commands
+\renewcommand{\(}{\begin{columns}}
+\renewcommand{\)}{\end{columns}}
+\newcommand{\cb}[1]{\begin{column}{#1}}
+\newcommand{\ce}{\end{column}}
+
+% Apply bg curve if requested,
+% but only if draft is off
+\ifdraft{}{
+    \beamer@SmartSerif@bgcurve
+}
+
+% Lastly, hide nav symbols
+\usenavigationsymbolstemplate{}
+\setbeamertemplate{navigation symbols}{\beamer@SmartSerif@num}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+

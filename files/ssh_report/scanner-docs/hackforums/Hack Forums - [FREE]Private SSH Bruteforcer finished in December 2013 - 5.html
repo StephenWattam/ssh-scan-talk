@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Hack Forums - [FREE]Private SSH Bruteforcer finished in December 2013</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="robots" content="index,follow" />
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="http://www.hackforums.net/archive/screen.css" media="screen" />
+<link type="text/css" rel="stylesheet" rev="stylesheet" href="http://www.hackforums.net/archive/print.css" media="print" />
+</head>
+<body>
+<div id="container">
+<h1><a href="http://www.hackforums.net/index.php">Hack Forums</a></h1>
+<div class="navigation"><a href="http://www.hackforums.net/archive/index.php">Hack Forums</a> &gt; <a href="http://www.hackforums.net/archive/index.php/forum-45.html">Hacks, Exploits, and Various Discussions</a> &gt; <a href="http://www.hackforums.net/archive/index.php/forum-10.html">Hacking Tools and Programs</a> &gt; [FREE]Private SSH Bruteforcer finished in December 2013</div>
+<div id="fullversion"><strong>Full Version:</strong> <a href="http://www.hackforums.net/showthread.php?tid=4072276&amp;page=5">[FREE]Private SSH Bruteforcer finished in December 2013</a></div>
+<div id="infobox">You're currently viewing a stripped down version of our content. <a href="http://www.hackforums.net/showthread.php?tid=4072276&amp;page=5">View the full version</a> with proper formatting.</div>
+<div id="content">
+<div class="multipage"><strong>Pages:</strong> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-1.html">1</a> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-2.html">2</a> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-3.html">3</a> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-4.html">4</a> <strong>5</strong> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-6.html">6</a> </div><div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=2098497">Courvoisier</a></h2></div><div class="dateline">05-28-2014, 10:22 AM</div>
+</div>
+<div class="message">That is not an error.<br />
+It says the file scan.log doesn't exist. scan.log is the file that contains the ip addresses .<br />
+Read the instructions on how to use it and it should work.</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=958869">nitoh</a></h2></div><div class="dateline">05-29-2014, 10:49 AM</div>
+</div>
+<div class="message"><blockquote><cite><span> (05-28-2014 10:22 AM)</span>JustBruteIT Wrote: <a href="http://www.hackforums.net/showthread.php?pid=40349016#pid40349016">[ -> ]</a></cite>That is not an error.<br />
+It says the file scan.log doesn't exist. scan.log is the file that contains the ip addresses .<br />
+Read the instructions on how to use it and it should work.</blockquote>
+<br />
+Got the same thing ... scan.log does not exist while i scan full a class and gave<br />
+permission on the folder</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=2098497">Courvoisier</a></h2></div><div class="dateline">05-29-2014, 02:34 PM</div>
+</div>
+<div class="message"><blockquote><cite><span> (05-29-2014 10:49 AM)</span>nitoh Wrote: <a href="http://www.hackforums.net/showthread.php?pid=40368414#pid40368414">[ -> ]</a></cite>Got the same thing ... scan.log does not exist while i scan full a class and gave<br />
+permission on the folder</blockquote>
+<br />
+I don't know what to say.<br />
+Maybe your vps blocks port scan and you don't get IPs<br />
+I tried it on all kind of roots/servers and it works just fine.So maybe you do something wrong ,or the vps is not good for it.</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=958869">nitoh</a></h2></div><div class="dateline">05-30-2014, 10:22 AM</div>
+</div>
+<div class="message"><blockquote><cite><span> (05-29-2014 02:34 PM)</span>JustBruteIT Wrote: <a href="http://www.hackforums.net/showthread.php?pid=40371970#pid40371970">[ -> ]</a></cite>I don't know what to say.<br />
+Maybe your vps blocks port scan and you don't get IPs<br />
+I tried it on all kind of roots/servers and it works just fine.So maybe you do something wrong ,or the vps is not good for it.</blockquote>
+<br />
+i used a virtualbox for testing purpose, managed to make it work once and then nothing no matter what i do.</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=2312011">ddio</a></h2></div><div class="dateline">06-01-2014, 07:15 AM</div>
+</div>
+<div class="message">I have a few suggestions to improve of issues I ran into while I tested the tool.<br />
+<br />
+I ran over some boxes which accepted every username password combination (don't know what they are perhaps honeypots?) you should store if a username/password combi was accepted and skip all other passwords with that username or if they accept two different passwords with same user skip completely because theses boxes are taking forever to check all combis...<br />
+<br />
+Also I'm getting these errors:<br />
+<br />
+*** glibc detected *** /usr/sbin/httpd: malloc(): memory corruption: 0x09fa3e10 ***<br />
+====== Backtrace: ======<br />
+[0x816c3d9]<br />
+[0x816ddf2]<br />
+[0x815e236]<br />
+[0x815e320]<br />
+[0x8049a77]<br />
+[0x8048f37]<br />
+[0x814b7d8]<br />
+[0x8048131]<br />
+====== Memory map: ======<br />
+08048000-08215000 r-xp 000000 00:b4 28909991             /root/bssh/ssh2<br />
+08215000-08225000 rw-p 001cd000 00:b4 28909991             /root/bssh/ssh2<br />
+08225000-0822e000 rw-p 000000 00:00 0 <br />
+09f09000-09faf000 rw-p 000000 00:00 0            [heap]<br />
+b7300000-b7326000 rw-p 000000 00:00 0 <br />
+b7326000-b7400000 ---p 000000 00:00 0 <br />
+b746a000-b7704000 rw-p 000000 00:00 0 <br />
+b7704000-b7705000 r-xp 000000 00:00 0            [vdso]<br />
+bf930000-bfbd5000 rw-p 000000 00:00 0            [stack]<br />
+<br />
+Don't if the strange box causes this problem or from where it comes...<br />
+<br />
+And another little suggestion, don't call the process httpd, we only use debian/ubuntu so we never ever will run a process called httpd, thats why I found this script pretty fast on one of our boxes. Something not so distribution specific would be better like just bash or sh? headed by CRON<br />
+<br />
+Thanks!</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=2312646">xzagurus</a></h2></div><div class="dateline">06-01-2014, 02:11 PM</div>
+</div>
+<div class="message">realy appriciate the share man you did some hard working on this thanks again</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=2098497">Courvoisier</a></h2></div><div class="dateline">06-01-2014, 05:58 PM</div>
+</div>
+<div class="message">@ddio<br />
+The tool isn't coded by me so i have no controll over how it works.<br />
+About the servers that login on all users/passwords ,you could make yourself a simple bash script with sed ,so it removes all lines from vuln.txt that contain the same IP.<br />
+About that error. Its because you set the threads too high for the machine you are running it on and it occupies all the memory allocated for running scripts.<br />
+The process is called httpd to avoid suspicion if you run in on a hacked server.It couldn't just be called "SshBrute" or something. So its called httpd to confuse the administrator into thinking they are httpd webserver process.<br />
+@xzagurus.<br />
+Thank you ,but i did not code this,the credits belong to other guy [you have his email when you start the scripts]<br />
+I just posted it!</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=2467920">g0d46</a></h2></div><div class="dateline">10-29-2014, 05:38 AM</div>
+</div>
+<div class="message">hahha you ""FOUND" it in a shell &gt;&gt;&gt; :)))) .... and btw don`t use it guys cause it sends email to the owner this was a test not for use just for fun the private version its for sale LOL .....</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=2098497">Courvoisier</a></h2></div><div class="dateline">10-29-2014, 08:55 AM</div>
+</div>
+<div class="message">Fairfax you are a little stupid aren't you? Just deactivate the sendmail from your server and you are fine.everyone sould know to do that if you use "public" bruters</div>
+</div>
+<div class="post">
+<div class="header">
+<div class="author"><h2><a href="http://www.hackforums.net/member.php?action=profile&amp;uid=1426647">mxzh</a></h2></div><div class="dateline">10-29-2014, 11:31 AM</div>
+</div>
+<div class="message">Thank you for this tool Courvoisier</div>
+</div>
+<div class="multipage"><strong>Pages:</strong> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-1.html">1</a> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-2.html">2</a> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-3.html">3</a> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-4.html">4</a> <strong>5</strong> <a href="http://www.hackforums.net/archive/index.php/thread-4072276-6.html">6</a> </div></div>
+<div class="navigation"><a href="http://www.hackforums.net/archive/index.php">Hack Forums</a> &gt; <a href="http://www.hackforums.net/archive/index.php/forum-45.html">Hacks, Exploits, and Various Discussions</a> &gt; <a href="http://www.hackforums.net/archive/index.php/forum-10.html">Hacking Tools and Programs</a> &gt; [FREE]Private SSH Bruteforcer finished in December 2013</div>
+<div id="printinfo">
+<strong>Reference URL's</strong>
+<ul>
+<li><strong>Hack Forums:</strong> http://www.hackforums.net/index.php</li>
+<li><strong>:</strong> </li></ul>
+</div>
+</div>
+<div id="footer">
+Powered By <a href="http://mybb.com">MyBB</a>, &copy; 2002-2014 <a href="http://mybb.com">MyBB Group</a>
+</div>
+</body>
+</html>
