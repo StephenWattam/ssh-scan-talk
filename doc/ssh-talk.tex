@@ -130,16 +130,11 @@ File: \texttt{logs.tgz}
 \end{itemize}
 }
 
-\subsection{Findings}
-\frame{\frametitle{BSSH}
-% Any files edited after 23rd
-
-File: \texttt{\_bssh.tgz}
+\frame{\frametitle{Logs}
 \begin{itemize}
-
-    \item Left over in \texttt{~daniel}
-    \item A quick google shows the docs, to be found in \texttt{hackforums/}
-
+    \item Logins at 2:21, 3:03 and 15:20
+    \item Bash history downloading archives/running \texttt{screen}
+    \item Entries for \url{www.adulttraffictrade.net} in the SQUID logs
 \end{itemize}
 }
 
@@ -160,6 +155,20 @@ chmod +x *
 screen
 \end{verbatim}
 \end{frame}
+
+
+\subsection{Files}
+\frame{\frametitle{BSSH}
+% Any files edited after 23rd
+
+File: \texttt{\_bssh.tgz}
+\begin{itemize}
+
+    \item Left over in \texttt{~daniel}
+    \item A quick google shows the docs, to be found in \texttt{hackforums/}
+
+\end{itemize}
+}
 
 
 \frame{\frametitle{Other Files}
@@ -189,7 +198,7 @@ screen
 }
 
 
-\frame[fragile=singleslide]{\frametitle{Log Findings}
+\frame[fragile=singleslide]{\frametitle{Scanner Script}
 \small
 \begin{lstlisting}[language=bash]
 #!/bin/bash
@@ -242,11 +251,27 @@ Tool generates:
 % RDP scan analysis
 % -----------------------------------------------------------------------
 \section{Software 2}
-\subsection{RDP Scanner}
+\subsection{ghh.tgz: RDP Scanner}
 \frame{\frametitle{RDP Scanner}
-    \begin{center}
-        \item Fin.
-    \end{center}
+
+File: \texttt{\_vogz.tgz}
+\begin{center}
+    \item \url{http://descargarcs.net63.net/fv/ghh.tgz} contains an RDP scanner
+    \item We don't know if this was run or not
+\end{center}
+}
+
+
+\frame[fragile=singleslide]{\frametitle{Scanner Script}
+\small
+\begin{lstlisting}[language=bash]
+#!/bin/bash
+LIST=$1
+for i in $LIST; do
+	./rdp -h $i.0.0/16 -u rdp.users -p rdp.pass \
+          -t 6 -c 20 -o rdp.log -d -k -C &
+done
+\end{lstlisting}
 }
 
 
@@ -255,10 +280,23 @@ Tool generates:
 % -----------------------------------------------------------------------
 \section{Our Findings}
 \frame{\frametitle{Summary}
-\begin{center}
-    \item Fin.
-\end{center}
+\begin{itemize}
+    \item The user connected for the first time at 2:21 from 104.131.165.104, and immediately disconnected
+    \item 3:03 - 9:34 from 79.115.46.59 (Bucharest), presumably to do the RDP scan
+    \item 15:20 - 10:29 the next day from 79.115.46.59, presumably running the SSH scan
+    \item At 10:29 the machine was rebooted, kicking the attacker
+\end{itemize}
 }
+
+
+\frame{\frametitle{Summary II}
+\begin{itemize}
+    \item The vulnerability was the `daniel' account, which had the password `daniel'
+    \item We don't know if the RDP scanner worked, or what it found
+    \item We don't know the significance, if any, of the SQUID logs.
+\end{itemize}
+}
+
 
 \frame{\frametitle{Resources / References}
     \begin{center}
