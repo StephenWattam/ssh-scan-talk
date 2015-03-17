@@ -193,8 +193,15 @@ File: \texttt{\_bssh.tgz}
 \subsection{SSH Scanner}
 \frame{\frametitle{SSH Scanner}
 \begin{center}
-    \item Fin.
+	File: \texttt{\_bssh.tgz}	
 \end{center}
+Three binaries:
+\begin{itemize}
+	\item scan: script to control pscan
+	\item pscan: port scanning tool generates list of open ports used by ssh2
+	\item ssh2: attempts login at produced list.
+	\item screen
+	\end{itemize}
 }
 
 
@@ -217,12 +224,6 @@ sleep 2
 }
 
 
-
-\frame{\frametitle{SSH Scanner}
-\begin{center}
-    \item Fin.
-\end{center}
-}
 
 \frame{\frametitle{SSH Scanner findings}
 
@@ -299,9 +300,19 @@ done
 
 
 \frame{\frametitle{Resources / References}
-    \begin{center}
-        \item Fin.
-    \end{center}
+			Tools used:
+\begin{itemize}
+				\item Rootkit detection: e.g. rkhunter, chkrootkit
+				\item extundelete: attempting to recover lost files
+				\item 'find / - newermt "Nov 23" - identify files changed since attack
+			
+\end{itemize}			
+			Reference:
+\begin{itemize}
+
+        \item Sectools.org - Network security / pentesting tools
+				\item Report of activity 
+\end{itemize}
 }
 
 % -----------------------------------------------------------------------------------------
