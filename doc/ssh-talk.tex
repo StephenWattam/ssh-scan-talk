@@ -17,6 +17,9 @@
 % -----------------------------------------------------------------------------------------
 % Other things for the sample
 \usepackage{hyperref}
+\usepackage{graphicx}
+
+\graphicspath{ {./images/} }
 
 % -----------------------------------------------------------------------------------------
 
@@ -41,6 +44,7 @@
 \frame{\frametitle{About}
 \begin{itemize}
     \item Compromised machine was a controller for a test cluster
+    \item Set up on 17th November 2014
     \item Notified of breach on 24th November
 
         % 'what do we do now'
@@ -55,8 +59,13 @@
 \begin{itemize}
     
     \item Small network with manager and slave nodes
-    
+    \item Test hadoop setup, services on LAN side
+
         % Topology picture
+    \begin{figure}[p]
+        \includegraphics[width=0.5\textwidth]{overview.png}
+    \end{figure}
+
 
 \end{itemize}
 }
