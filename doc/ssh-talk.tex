@@ -215,6 +215,28 @@ sleep 2
 \end{center}
 }
 
+\frame{\frametitle{SSH Scanner findings}
+
+Tool takes as input:
+\begin{itemize}
+	\item pass.txt: list of common username / password combinations.	
+	\end{itemize}
+	
+Attacker may configure:
+\begin{itemize}
+	\item PscanThreads: speed of IP scanning
+	\item ssh2Threads: speed of brute-forcing
+	\end{itemize}
+
+Tool generates: 
+\begin{itemize}
+	\item vuln.txt: where good roots are stored
+	\item nobash.txt where no-logins are stored
+\end{itemize}
+
+
+}
+
 
 % -----------------------------------------------------------------------
 % RDP scan analysis
