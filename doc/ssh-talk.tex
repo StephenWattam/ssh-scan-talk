@@ -258,21 +258,36 @@ Tool takes as input:
 	\item pass.txt: list of common username / password combinations.	
 \end{itemize}
 	
+\vspace{10pt}
 Attacker may configure:
 \begin{itemize}
 	\item PscanThreads: speed of IP scanning
 	\item ssh2Threads: speed of brute-forcing
 \end{itemize}
 
+\vspace{10pt}
 Tool generates: 
 \begin{itemize}
 	\item vuln.txt: where good roots are stored
 	\item nobash.txt where no-logins are stored
 \end{itemize}
 
-
 }
 
+
+\frame{\frametitle{SSH Scanner findings}
+
+Both \texttt{pscan} and \texttt{ssh2} phone home to 37.251.140.187
+\begin{itemize}
+    \item HTTP calls to \texttt{/port\_scan/vip.php?vip=<CODE>} \\
+    and \texttt{/ssh2\_brute/vip.php?vip=<CODE>}
+
+    \vspace{10pt}
+    \item Disassembly indicates code is generated from time, machine name
+    \vspace{10pt}
+    \item Required to run tool
+\end{itemize}	
+}
 
 % -----------------------------------------------------------------------
 % RDP scan analysis
@@ -349,6 +364,31 @@ Reference:
     \item Report of activity (File: \texttt{terse.ly/misc/files/ssh\_report.pdf}) 
 \end{itemize}
 }
+
+
+
+% -----------------------------------------------------------------------------------------
+% Running stuff 
+% -----------------------------------------------------------------------------------------
+
+
+\frame{\frametitle{Running the SSH Scanner}
+
+File: \texttt{bssh\_cracked.tar.gz}
+\begin{itemize}
+    \item run \texttt{run\_me\_first} as root
+    \item run \texttt{./scan} or the \texttt{pscan}/\texttt{ssh2} tools individually
+    \item Try \texttt{./scan 10.151.}
+\end{itemize}
+
+\vspace{10pt}
+File: \texttt{\_vogz.tgz}
+\begin{itemize}
+    \item \texttt{chmod +x run}
+    \item \texttt{./run}
+\end{itemize}
+}
+
 
 % -----------------------------------------------------------------------------------------
 \end{document}
